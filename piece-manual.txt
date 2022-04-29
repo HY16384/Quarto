@@ -1,0 +1,16 @@
+black, circle, high, hole: 0000
+black, circle, high, no hole: 0001
+black, circle, low, hole: 0010
+black, circle, low, no hole: 0011
+black, square, high, hole: 0100
+black, square, high, no hole: 0101
+black, square, low, hole: 0110
+black, square, low, no hole: 0111
+white, circle, high, hole: 1000
+white, circle, high, no hole: 1001
+white, circle, low, hole: 1010
+white, circle, low, no hole: 1011
+white, square, high, hole: 1100
+white, square, high, no hole: 1101
+white, square, low, hole: 1110
+white, square, low, no hole: 1111

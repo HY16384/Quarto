@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/playground.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Poppins&display=swap" rel="stylesheet">
+    <title>Quarto</title>
+  </head>
+  <body>
+    <div class="page-top">
+      <div class="container">
+        <div class="board">
+          <% for (var i = 0; i < 4; i++) { %>
+            <div class="board-row">
+              <% for (var j = 0; j < 4; j++) {%>
+                <div class="board-circle" id="board-<%= (i+1)+"-"+(j+1) %>">
+                  <img src="/img/0000.svg" alt="">
+                </div>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+        <div class="select-block">
+          <div class="player-container">
+            <div class="player1-icon">
+              <img src="" alt="">
+            </div>
+            <div class="divider"></div>
+            <div class="player2-icon">
+              <img src="" alt="">
+            </div>
+          </div>
+          <div class="next-piece-container">
+            <img src="/img/0000.svg" alt="">
+          </div>
+          <div class="remaining-pieaces-container">
+            <% for (var i = 0; i < 16; i++) { %>
+              <div class="remaining-pieace" id="remain-<%= i+1 %>">
+                <img src="" alt="">
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.js"   integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="   crossorigin="anonymous"></script>
+    <script src="/js/playground.js" charset="utf-8"></script>
+  </body>
+
+</html>
