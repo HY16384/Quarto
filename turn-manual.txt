@@ -1,0 +1,7 @@
+-1: stop playing
+0: first player starts to select a piece
+1: second player starts to put the piece
+2: second player starts to select a piece
+3: first player starts to put the piece
+4: player1 win
+5: player2 win

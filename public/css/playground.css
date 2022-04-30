@@ -17,6 +17,7 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .board {
+  pointer-events: none;
   background-color: var(--dark-gray);
   border-radius: 15px;
   aspect-ratio: 1;
@@ -26,6 +27,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.board.clickable {
+  pointer-events: auto;
 }
 .board .board-row {
   display: flex;
@@ -42,10 +46,56 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
 }
 .board .board-row .board-circle img {
   height: 100%;
   width: 100%;
+}
+.board.clickable .board-row .board-circle:hover {
+  width: calc(15vh - 0.8rem);
+  height: calc(15vh - 0.8rem);
+  border-style: solid;
+  border-color: var(--quaternary);
+  border-width: 0.4rem;
+}
+.board .board-row .board-circle.active {
+  background-color: var(--quaternary);
+}
+.board .board-row .board-circle.piecein {
+  pointer-events: none;
+  background-color: white;
+}
+.board .board-row .board-circle.piecein:hover {
+  width: 15vh;
+  height: 15vh;
+  border-style: none;
+}
+.board .board-row .board-circle .board-btn{
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: black;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 204, 112, 75, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+.board .board-row .board-circle.active .board-btn {
+  display: block;
+}
+.board .board-row .board-circle.active:hover .board-btn {
+  opacity: 1;
 }
 
 .select-block {
@@ -58,11 +108,33 @@
 }
 
 .player-container {
-  flex-grow: 2;
   height: calc(22% - 10vh);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.player-container .player-container-player {
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0)
+}
+.player-container .player-container-player h1{
+  color: black;
+  margin: 0;
+  font-size: 5vh;
+  text-align: center;
+  height: 100%;
+}
+.player-container .player-container-player.active {
+  background-color: var(--quaternary);
+}
+.player-container .player-container-player.active h1{
+  color: white;
 }
 
 .next-piece-container {
+  pointer-events: none;
   background-color: var(--gray1);
   border-radius: 15px;
   padding: 5vh;
@@ -74,9 +146,10 @@
 }
 
 .remaining-pieaces-container {
+  pointer-events: none;
   background-color: var(--gray1);
   border-radius: 15px;
-  height: calc(45% - 10vh);
+  height: calc(45% - 5vh);
   padding: 5vh;
   display: flex;
   flex-direction: row;
@@ -84,9 +157,48 @@
   justify-content: space-between;
   overflow-y: auto;
 }
+.remaining-pieaces-container.clickable {
+  pointer-events: auto;
+}
 .remaining-pieaces-container .remaining-pieace{
-  width: calc(100% - 13vh);
+  padding: 0.5rem;
+  width: 5rem;
+  border-radius: 15px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .remaining-pieaces-container .remaining-pieace img {
   width: 100%;
+}
+.remaining-pieaces-container .remaining-pieace.active {
+  position: relative;
+  background-color: var(--quaternary);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.remaining-pieaces-container .remaining-pieace .remaining-pieace-btn{
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: black;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 204, 112, 75, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+.remaining-pieaces-container .remaining-pieace.active .remaining-pieace-btn{
+  display: block;
+}
+.remaining-pieaces-container .remaining-pieace.active:hover .remaining-pieace-btn{
+  opacity: 1;
 }

@@ -17,7 +17,7 @@
             <div class="board-row">
               <% for (var j = 0; j < 4; j++) {%>
                 <div class="board-circle" id="board-<%= (i+1)+"-"+(j+1) %>">
-                  <img src="/img/0000.svg" alt="">
+                  <span class="board-btn">このマスにする</span>
                 </div>
               <% } %>
             </div>
@@ -25,20 +25,19 @@
         </div>
         <div class="select-block">
           <div class="player-container">
-            <div class="player1-icon">
-              <img src="" alt="">
+            <div class="player-container-player" id="player1">
+              <h1>Player1</h1>
             </div>
-            <div class="divider"></div>
-            <div class="player2-icon">
-              <img src="" alt="">
+            <div class="player-container-player" id="player2">
+              <h1>Player2</h1>
             </div>
           </div>
           <div class="next-piece-container">
-            <img src="/img/0000.svg" alt="">
           </div>
           <div class="remaining-pieaces-container">
             <% for (var i = 0; i < 16; i++) { %>
               <div class="remaining-pieace" id="remain-<%= i+1 %>">
+                <span class="remaining-pieace-btn">このピースにする</span>
                 <img src="" alt="">
               </div>
             <% } %>
